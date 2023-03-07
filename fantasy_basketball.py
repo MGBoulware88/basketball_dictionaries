@@ -66,20 +66,24 @@ class Player:
         self.position = dict['position']
         self.team = dict['team']
     
-    # @classmethod
-    # def get_team(cls, team_list):
-    #     team_list = []
-    #     for team in team_list:
-    #         team_list.append(team)
-    #     return team_list
+    @classmethod
+    def get_team(cls, team_list):
+        new_team = []
+        for dict in team_list:
+            new_team.append(Player(dict))
+        return team_list
 # makes Player objects with single dicts
-# player_kevin = Player(kevin)
-# player_jason = Player(jason)
-# player_kyrie = Player(kyrie)
+player_kevin = Player(kevin)
+player_jason = Player(jason)
+player_kyrie = Player(kyrie)
 
 # makes Player objects with a list of dicts
 player_list = []
-for dict in players:
-    team_dict = Player(dict)
-    player_list.append(team_dict)
-    print(team_dict)
+
+new_team = Player.get_team(players)
+
+print(new_team)
+
+
+
+
